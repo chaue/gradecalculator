@@ -14,10 +14,9 @@ class gradeCalc : public QMainWindow
 public:
     explicit gradeCalc(QWidget *parent = nullptr);
     ~gradeCalc();
-    void updatelabel();
 
 private slots:
-    void changeval1(int);
+    void updatelabel();
 
 private:
     Ui::gradeCalc *ui;

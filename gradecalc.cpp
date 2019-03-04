@@ -8,10 +8,9 @@ gradeCalc::gradeCalc(QWidget *parent) :
     ui->setupUi(this);
 
     QObject::connect(ui->spinbox1, SIGNAL(valueChanged(int)),
-                     this, SLOT(changeval1(int)));
+                     this, SLOT(updatelabel()));
     QObject::connect(ui->slider1, SIGNAL(valueChanged(int)),
-                     this, SLOT(changeval1(int)));
-
+                     this, SLOT(updatelabel()));
 }
 
 gradeCalc::~gradeCalc()
@@ -19,14 +18,8 @@ gradeCalc::~gradeCalc()
     delete ui;
 }
 
-void gradeCalc::changeval1(int val) {
-    value1 = val;
-    updatelabel();
-    return;
-}
-
 void gradeCalc::updatelabel() {
-    double x1 = static_cast<double>(value1);
+    int x1 = static_cast<int>(ui->spinbox1->value());
     QString text( QString::number(x1));
     ui->label->setText(text);
 }
