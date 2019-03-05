@@ -3,7 +3,7 @@
 
 gradeCalc::gradeCalc(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::gradeCalc), hw1(0), hw2(0), hw3(0), hw4(0),hw5(0), hw6(0), hw7(0), hw8(0)
+    ui(new Ui::gradeCalc)
 {
     ui->setupUi(this);
 
