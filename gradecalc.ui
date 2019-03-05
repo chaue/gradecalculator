@@ -17,10 +17,10 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>10</y>
-      <width>269</width>
-      <height>230</height>
+      <x>8</x>
+      <y>9</y>
+      <width>441</width>
+      <height>281</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -259,19 +259,29 @@
          <property name="text">
           <string>Midterm 1</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
           <widget class="QSlider" name="testslider1">
+           <property name="maximum">
+            <number>100</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="testbox1"/>
+          <widget class="QSpinBox" name="testbox1">
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -280,19 +290,29 @@
          <property name="text">
           <string>Midterm 2</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
           <widget class="QSlider" name="testslider2">
+           <property name="maximum">
+            <number>100</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="testbox2"/>
+          <widget class="QSpinBox" name="testbox2">
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -301,19 +321,29 @@
          <property name="text">
           <string>Final</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_11">
          <item>
           <widget class="QSlider" name="testslider3">
+           <property name="maximum">
+            <number>100</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="testbox3"/>
+          <widget class="QSpinBox" name="testbox3">
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -334,7 +364,7 @@
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>TextLabel</string>
+          <string>0</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
