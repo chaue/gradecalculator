@@ -2,6 +2,9 @@
 #define GRADECALC_H
 
 #include <QMainWindow>
+#include <QVector>
+#include <QSpinBox>
+#include <QVectorIterator>
 
 namespace Ui {
 class gradeCalc;
@@ -20,6 +23,7 @@ private slots:
 
 private:
     Ui::gradeCalc *ui;
+    QVector<QSpinBox*> hw;
     int hw1;
     int hw2;
     int hw3;

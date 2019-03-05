@@ -7,38 +7,23 @@ gradeCalc::gradeCalc(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QObject::connect(ui->spinbox1, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider1, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox2, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider2, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox3, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider3, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox4, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider4, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox5, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider5, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox6, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider6, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox7, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider7, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->spinbox8, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
-    QObject::connect(ui->slider8, SIGNAL(valueChanged(int)),
-                     this, SLOT(updatelabel()));
+    // create vector of spinboxes and connect them to updatelabel()
+    QVector<QSpinBox*> hwboxes({ui->spinboxhw1, ui->spinboxhw2, ui->spinboxhw3, ui->spinboxhw4,
+                             ui->spinboxhw5, ui->spinboxhw6, ui->spinboxhw7, ui->spinboxhw8});
+    hw = hwboxes;
+    for (int i = 0; i < 7; i++) {
+        QObject::connect(boxes[i], SIGNAL(valueChanged(int)),
+                                          this, SLOT(updatelabel()));
+    }
+
+    // create vector of sliders and connect them to updatelabel()
+    QVector<QSlider*> sliders({ui->sliderhw1, ui->sliderhw2, ui->sliderhw3, ui->sliderhw4,
+                              ui->sliderhw5, ui->sliderhw6, ui->sliderhw7, ui->sliderhw8});
+
+    for(int i = 0; i < 7; i++) {
+        QObject::connect(ui->sliderhw1, SIGNAL(valueChanged(int)),
+                         this, SLOT(updatelabel()));
+    }
 }
 
 gradeCalc::~gradeCalc()
@@ -47,15 +32,11 @@ gradeCalc::~gradeCalc()
 }
 
 void gradeCalc::updatelabel() {
-    double hw1 = static_cast<double>(ui->spinbox1->value());
-    double hw2 = static_cast<double>(ui->spinbox2->value());
-    double hw3 = static_cast<double>(ui->spinbox3->value());
-    double hw4 = static_cast<double>(ui->spinbox4->value());
-    double hw5 = static_cast<double>(ui->spinbox5->value());
-    double hw6 = static_cast<double>(ui->spinbox6->value());
-    double hw7 = static_cast<double>(ui->spinbox7->value());
-    double hw8 = static_cast<double>(ui->spinbox8->value());
-    double total = hw1 + hw2 + hw3 + hw4 + hw5 + hw6 + hw7 + hw8;
+    double total = 0;
+    for (int i = 0; i < 7; i++) {
+        total = total + hw[i]->value();
+    }
+
 
     QString text( QString::number(total));
     ui->label->setText(text);
