@@ -20,10 +20,12 @@ public:
 
 private slots:
     void updatelabel();
+    void changescheme();
 
 private:
     Ui::gradeCalc *ui;
     QVector<QSpinBox*> hw;
+    bool scheme1 = true;
 };
 
 #endif // GRADECALC_H
